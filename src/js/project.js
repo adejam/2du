@@ -3,4 +3,4 @@ const startApp = () => {
   body.innerHTML = '<h2>JAVASCRIPT ENABLED</h2>';
 };
 
-startApp();
+export default startApp;
