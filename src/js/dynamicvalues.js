@@ -9,7 +9,6 @@ function dynamicValues(id, values) {
       newItem[result.id] = result.value;
     }
   });
-  console.log(newItem);
   return newItem;
 }
 

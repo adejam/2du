@@ -1,4 +1,5 @@
 import getItems from './getitems';
+
 function dynamicId(databaseName) {
   let id;
   if (localStorage.getItem(databaseName) === null) {

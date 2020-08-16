@@ -2,7 +2,7 @@ import closeModal from './closemodal';
 import dynamicValues from './dynamicvalues';
 import dynamicId from './dynamicid';
 import addItem from './additems';
-import getItems from './getitems';
+import addItemToUi from './additemtoui';
 
 function create(e) {
   e.preventDefault();
@@ -10,11 +10,9 @@ function create(e) {
   const databaseName = e.target.dataset.formname;
   const item = dynamicValues(dynamicId(databaseName), values);
   addItem(item, databaseName);
-  // addBookToList(book);
+  addItemToUi(item, databaseName);
   e.target.reset();
   closeModal(e.target);
 }
-
-
 
 export default create;

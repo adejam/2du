@@ -1,4 +1,5 @@
 import getItems from './getitems';
+
 function addItem(item, databaseName) {
   const items = getItems(databaseName);
   items.push(item);
