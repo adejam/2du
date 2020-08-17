@@ -1,10 +1,31 @@
+import createNewElement from './newelement';
+function statusFunc(className, id) {
+  return `<button type="button" class="btn-sm btn ${className} changeStatus" data-databasename="todo" data-identity="${id}" id="statusButton${id}">
+            <svg
+              class="changeStatus" data-identity="${id}" id="statusSvg${id}" data-databasename="todo"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+                        style="width:15px; height: 15px;"
+            >
+              <path class="changeStatus" data-identity="${id}" id="statusPath${id}" data-databasename="todo"
+                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+              />
+            </svg>
+          </button>
+            `;
+}
+
 function addItemToUi(item, databaseName) {
   if (databaseName === 'todo') {
+    let status = '';
+    if (item.status === true) {
+      status = statusFunc('btn-success', item.id);
+    } else {
+      status = statusFunc('btn-outline-success', item.id);
+    }
     const todoRow = document.querySelector('#todoRow');
-    const todoArticle = document.createElement('article');
-    todoArticle.className = 'list_group_item list_group_item_action flex-column align-items-start';
-    todoArticle.innerHTML = `
-
+    const dClasses = 'list_group_item list_group_item_action flex-column align-items-start';
+    const rowIner = `
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">${item.title}</h5>
                   <small>${item.priority}</small>
@@ -24,17 +45,7 @@ function addItemToUi(item, databaseName) {
                     </button>
                   </div>
                   <div class="mr_10">
-                    <button type="button" class="btn-sm btn btn-outline-success" id="done${item.id}">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        style="width:15px; height: 15px;"
-                      >
-                        <path
-                          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-                        />
-                      </svg>
-                    </button>
+                    ${status}
                   </div>
                   <div class="mr_10">
                     <button
@@ -76,7 +87,7 @@ function addItemToUi(item, databaseName) {
                           </div>
                           <form id="editTodoForm${item.id}">
                             <div class="modal-body">
-                              <!-- <input type="hidden" class="values" id="${item.id}" data-uid="uid" /> -->
+                              <!-- <input type="hidden" class="values" data-uid="uid" /> -->
                               <div class="form-group">
                                 <label for="editTitle">Edit Title</label>
                                 <input
@@ -84,7 +95,7 @@ function addItemToUi(item, databaseName) {
                                   class="form-control values"
                                   id="editTitle${item.id}"
                                   placeholder="${item.title}"
-                                  values="${item.title}"
+                                  value="${item.title}"
                                   required
                                 />
                               </div>
@@ -99,17 +110,18 @@ function addItemToUi(item, databaseName) {
                                   required
                                 />
                               </div>
+
                               <div class="form-group">
-                                <label for="priority">Edit Priority</label>
-                                <input
-                                  type="text"
-                                  class="form-control values"
-                                  id="editPriority${item.id}"
-                                  placeholder="${item.priority}"
-                                  values="${item.priority}"
-                                  required
-                                />
-                              </div>
+                          <label for="editPriority${item.id}">Priority</label>
+                          <select class="form-control values" id="editPriority${item.id}" required>
+                          <option value="${item.priority}">${item.priority}</option>
+                            <option value="very low">Very Low</option>
+                            <option value="low">Low</option>
+                            <option value="average">Average</option>
+                            <option value="high">High</option>
+                            <option value="very high">Very High</option>
+                          </select>
+                        </div>
                               <div class="form-group">
                                 <label for="editDueDate">Edit Due Date</label>
                                 <input
@@ -117,21 +129,18 @@ function addItemToUi(item, databaseName) {
                                   class="form-control values"
                                   id="editDueDate${item.id}"
                                   placeholder="${item.dueDate}"
-                                  values="${item.dueDate}"
+                                  value="${item.dueDate}"
                                   required
                                 />
                               </div>
                               <div class="form-group">
-                                <label for="project">Edit Project</label>
-                                <input
-                                  type="text"
-                                  class="form-control values"
-                                  id="editProject${item.id}"
-                                  placeholder="${item.project}"
-                                  values="${item.project}"
-                                  required
-                                />
-                              </div>
+                          <label for="editSelectProject${item.id}">Project</label>
+                          <select class="form-control values" id="editSelectProject${item.id}" required data-select="selectinput">
+                           <option value="${item.selectProject}">${item.selectProject}</option>
+                            <option value="work">Work</option>
+                            <option value="personal">Personal</option>
+                          </select>
+                        </div>
                             </div>
                             <div class="modal-footer">
                               <button type="submit" class="btn btn-primary" id="editTodo${item.id}">
@@ -151,25 +160,24 @@ function addItemToUi(item, databaseName) {
                 </div>
                 <div class="collapse mt_10" id="collapseExample${item.id}">
                   <p>${item.description}</p>
-                  <p><strong>Project:</strong> ${item.project}</p>
+                  <p><strong>Project:</strong> ${item.selectProject}</p>
                   <p><strong>Due Date:</strong> ${item.dueDate}</p>
                 </div>
 
           `;
 
-    todoRow.appendChild(todoArticle);
+    createNewElement(todoRow, 'article', dClasses, null, null, rowIner);
   } else if (databaseName === 'project') {
     const projectRow = document.querySelector('#projectRow');
-    const projectLi = document.createElement('li');
-    projectLi.className = 'list_group_item';
-    projectLi.innerHTML = `<span>${item.projectTitle}</span>
-          `;
-    const selectProject = document.querySelector('#selectProject');
-    const selectOption = document.createElement('option');
-    selectOption.setAttribute('value', `${item.projectTitle}`);
-    selectOption.innerHTML = `${item.projectTitle}`;
-    selectProject.appendChild(selectOption);
-    projectRow.appendChild(projectLi);
+    const selectInputs = document.querySelectorAll('[data-select="selectinput"]');
+    const inputIner = `${item.projectTitle}`;
+    const inner = `<span>${item.projectTitle}</span>`;
+    const attr = `${item.projectTitle}`;
+    selectInputs.forEach(selectInput => {
+      createNewElement(selectInput, 'option', null, 'value', attr, inputIner);
+    });
+
+    createNewElement(projectRow, 'li', 'list_group_item', null, null, inner);
   }
 }
 

@@ -1,11 +1,11 @@
 import getItems from './getitems';
 import removeFromUi from './removefromui';
+import changeStatus from './changestatus';
 
 function removeBookOrChangeStatus(e) {
   e.preventDefault();
   if (e.target.classList.contains('removeBtn')) {
     const databaseName = e.target.dataset.databasename;
-    // console.log(databaseName);
     const items = getItems(databaseName);
     let index = -1;
     const id = parseInt(e.target.id, 10);
@@ -20,23 +20,22 @@ function removeBookOrChangeStatus(e) {
     localStorage.setItem(databaseName, JSON.stringify(items));
     removeFromUi(e.target);
   } else if (e.target.classList.contains('changeStatus')) {
-    // const id = parseInt(e.target.dataset.identity, 10);
-    // const books = getBooks();
-    // for (let i = 0; i < books.length; i += 1) {
-    //   if (books[i].id === id) {
-    //     if (books[i].readStatus === true) {
-    //       books[i].readStatus = false;
-    //       const message = 'You should read this book!';
-    //       changeStatus(false, id, message);
-    //     } else {
-    //       books[i].readStatus = true;
-    //       const message = 'You have read this book!';
-    //       changeStatus(true, id, message);
-    //     }
-    //     break;
-    //   }
-    // }
-    // localStorage.setItem('book', JSON.stringify(books));
+    const id = parseInt(e.target.dataset.identity, 10);
+    const databaseName = e.target.dataset.databasename;
+    const items = getItems(databaseName);
+    for (let i = 0; i < items.length; i += 1) {
+      if (items[i].id === id) {
+        if (items[i].status === true) {
+          items[i].status = false;
+          changeStatus(false, id);
+        } else {
+          items[i].status = true;
+          changeStatus(true, id);
+        }
+        break;
+      }
+    }
+    localStorage.setItem(databaseName, JSON.stringify(items));
   }
 }
 
