@@ -12,7 +12,6 @@
     />
   </head>
   <body>
-    <!-- <input placeholder="dd/mm/yyy hh:mm" type="datetime-local" class="data form-control" name="dueDate" id="todo-duedate" required=""> -->
     <div class="">
       <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
@@ -81,7 +80,6 @@
                         <div class="form-group">
                           <label for="priority">Priority</label>
                           <select class="form-control values" id="priority" required>
-                            <option>Choose Priority</option>
                             <option value="very low">Very Low</option>
                             <option value="low">Low</option>
                             <option value="average">Average</option>
@@ -101,12 +99,17 @@
                         </div>
                         <div class="form-group">
                           <label for="project">Project</label>
-                          <select class="form-control values" id="project" required>
-                            <option>Choose Project</option>
+                          <select class="form-control values" id="selectProject" required>
                             <option value="work">Work</option>
                             <option value="personal">Personal</option>
                           </select>
                         </div>
+                        <input
+                          type="hidden"
+                          class="form-check-input values"
+                          id="status"
+                          data-checker="checker"
+                        />
                       </div>
                       <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" id="addTodo">Add Todo</button>
@@ -268,7 +271,7 @@
                                 />
                               </div>
                               <div class="form-group">
-                                <label for="description">Edit Description</label>
+                                <label for="editDescription">Edit Description</label>
                                 <input
                                   type="text"
                                   class="form-control values"
@@ -278,7 +281,7 @@
                                 />
                               </div>
                               <div class="form-group">
-                                <label for="priority">Edit Priority</label>
+                                <label for="editPriority">Edit Priority</label>
                                 <input
                                   type="text"
                                   class="form-control values"
@@ -288,7 +291,7 @@
                                 />
                               </div>
                               <div class="form-group">
-                                <label for="dueDate">Edit Due Date</label>
+                                <label for="editDueDate">Edit Due Date</label>
                                 <input
                                   type="datetime-local"
                                   class="form-control values"
@@ -298,7 +301,7 @@
                                 />
                               </div>
                               <div class="form-group">
-                                <label for="project">Edit Project</label>
+                                <label for="editProject">Edit Project</label>
                                 <input
                                   type="text"
                                   class="form-control values"
