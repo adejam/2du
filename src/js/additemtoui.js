@@ -1,4 +1,6 @@
 import createNewElement from './newelement';
+import replaceElement from './replaceelement';
+
 function statusFunc(className, id) {
   return `<button type="button" class="btn-sm btn ${className} changeStatus" data-databasename="todo" data-identity="${id}" id="statusButton${id}">
             <svg
@@ -15,7 +17,7 @@ function statusFunc(className, id) {
             `;
 }
 
-function addItemToUi(item, databaseName) {
+function addItemToUi(item, databaseName, formType) {
   if (databaseName === 'todo') {
     let status = '';
     if (item.status === true) {
@@ -25,7 +27,9 @@ function addItemToUi(item, databaseName) {
     }
     const todoRow = document.querySelector('#todoRow');
     const dClasses = 'list_group_item list_group_item_action flex-column align-items-start';
+    const tagId = `tod${item.id}`;
     const rowIner = `
+              <div>
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">${item.title}</h5>
                   <small>${item.priority}</small>
@@ -50,23 +54,25 @@ function addItemToUi(item, databaseName) {
                   <div class="mr_10">
                     <button
                       type="button"
-                      class="btn-sm btn btn-outline-primary"
+                      class="btn-sm btn btn-outline-primary edit"
                       data-toggle="modal"
-                      data-target="#editBookModal${item.id}"
+                      data-target="#editTodoModal${item.id}"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"
                         style="width:15px; height: 15px;"
+                        class="edit"
                       >
                         <path
+                        class="edit"
                           d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"
                         />
                       </svg>
                     </button>
                     <div
                       class="modal fade"
-                      id="editBookModal${item.id}"
+                      id="editTodoModal${item.id}"
                       tabindex="-1"
                       role="dialog"
                       aria-labelledby="exampModalLabel"
@@ -85,14 +91,15 @@ function addItemToUi(item, databaseName) {
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <form id="editTodoForm${item.id}">
+                          <form id="editTodoForm${item.id}" data-databasename="todo"
+                            data-databaseid="${item.id}" data-formtype="edit">
                             <div class="modal-body">
-                              <!-- <input type="hidden" class="values" data-uid="uid" /> -->
                               <div class="form-group">
-                                <label for="editTitle">Edit Title</label>
+                                <label for="editTitle${item.id}">Edit Title</label>
                                 <input
                                   type="text"
                                   class="form-control values"
+                                  data-databasekey="title"
                                   id="editTitle${item.id}"
                                   placeholder="${item.title}"
                                   value="${item.title}"
@@ -100,10 +107,11 @@ function addItemToUi(item, databaseName) {
                                 />
                               </div>
                               <div class="form-group">
-                                <label for="description">Edit Description</label>
+                                <label for="editDescription${item.id}">Edit Description</label>
                                 <input
                                   type="text"
                                   class="form-control values"
+                                  data-databasekey="description"
                                   id="editDescription${item.id}"
                                   placeholder="${item.description}"
                                   value="${item.description}"
@@ -112,9 +120,13 @@ function addItemToUi(item, databaseName) {
                               </div>
 
                               <div class="form-group">
-                          <label for="editPriority${item.id}">Priority</label>
-                          <select class="form-control values" id="editPriority${item.id}" required>
-                          <option value="${item.priority}">${item.priority}</option>
+                          <label for="editPriority${item.id}">Edit Priority</label>
+                          <select
+                           class="form-control values"
+                           id="editPriority${item.id}"
+                           data-databasekey="priority"
+                           required>
+                           <option value="${item.priority}">${item.priority}</option>
                             <option value="very low">Very Low</option>
                             <option value="low">Low</option>
                             <option value="average">Average</option>
@@ -123,10 +135,11 @@ function addItemToUi(item, databaseName) {
                           </select>
                         </div>
                               <div class="form-group">
-                                <label for="editDueDate">Edit Due Date</label>
+                                <label for="editDueDate${item.id}">Edit Due Date</label>
                                 <input
                                   type="datetime-local"
                                   class="form-control values"
+                                  data-databasekey="dueDate"
                                   id="editDueDate${item.id}"
                                   placeholder="${item.dueDate}"
                                   value="${item.dueDate}"
@@ -134,16 +147,21 @@ function addItemToUi(item, databaseName) {
                                 />
                               </div>
                               <div class="form-group">
-                          <label for="editSelectProject${item.id}">Project</label>
-                          <select class="form-control values" id="editSelectProject${item.id}" required data-select="selectinput">
-                           <option value="${item.selectProject}">${item.selectProject}</option>
+                          <label for="editSelectProject${item.id}">Edit Project</label>
+                          <select
+                           class="form-control values"
+                           data-databasekey="selectProject"
+                           id="editSelectProject${item.id}"
+                           required
+                           data-select="selectinput">
+                            <option value="${item.selectProject}">${item.selectProject}</option>
                             <option value="work">Work</option>
                             <option value="personal">Personal</option>
                           </select>
                         </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary" id="editTodo${item.id}">
+                              <button type="submit" class="btn btn-primary editTodo" id="editTodo${item.id}">
                                 Edit Todo
                               </button>
                             </div>
@@ -163,10 +181,13 @@ function addItemToUi(item, databaseName) {
                   <p><strong>Project:</strong> ${item.selectProject}</p>
                   <p><strong>Due Date:</strong> ${item.dueDate}</p>
                 </div>
-
+              <div>
           `;
-
-    createNewElement(todoRow, 'article', dClasses, null, null, rowIner);
+    if (formType === 'add') {
+      createNewElement(todoRow, 'article', dClasses, tagId, null, null, rowIner);
+    } else {
+      replaceElement(tagId, rowIner);
+    }
   } else if (databaseName === 'project') {
     const projectRow = document.querySelector('#projectRow');
     const selectInputs = document.querySelectorAll('[data-select="selectinput"]');
@@ -174,10 +195,10 @@ function addItemToUi(item, databaseName) {
     const inner = `<span>${item.projectTitle}</span>`;
     const attr = `${item.projectTitle}`;
     selectInputs.forEach(selectInput => {
-      createNewElement(selectInput, 'option', null, 'value', attr, inputIner);
+      createNewElement(selectInput, 'option', null, null, 'value', attr, inputIner);
     });
 
-    createNewElement(projectRow, 'li', 'list_group_item', null, null, inner);
+    createNewElement(projectRow, 'li', 'list_group_item', null, null, null, inner);
   }
 }
 

@@ -1,6 +1,7 @@
 import getItems from './getitems';
 import removeFromUi from './removefromui';
 import changeStatus from './changestatus';
+import editTodo from './edit';
 
 function removeBookOrChangeStatus(e) {
   e.preventDefault();
@@ -36,6 +37,13 @@ function removeBookOrChangeStatus(e) {
       }
     }
     localStorage.setItem(databaseName, JSON.stringify(items));
+  } else if (e.target.classList.contains('edit')) {
+    const editTodoForm = document.querySelectorAll('[data-formtype="edit"]');
+    editTodoForm.forEach(fom => {
+      const id = parseInt(fom.dataset.databaseid, 10);
+      const fomBtn = fom.querySelector(`#editTodo${id}`);
+      fomBtn.addEventListener('click', editTodo);
+    });
   }
 }
 
