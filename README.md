@@ -15,7 +15,6 @@ For learning purpose:
 - Arrow function is used
 - Destructuring assignment is used.
 
-
 ## Technology Used
 
 - HTML
