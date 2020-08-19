@@ -40,6 +40,7 @@
     "eslint": "npx eslint . --fix",
     "eslint:check": "npx eslint .",
     "build": "npx webpack",
-    "build:watch": "npx webpack --watch"
+    "build:watch": "npx webpack --watch",
+    "build": "npx webpack --mode production"
   }
 }

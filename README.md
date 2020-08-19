@@ -8,6 +8,14 @@ The project follows the guideline of [the odin project](https://theodinproject.c
 
 It demonstrates the use of Object Oriented Programming in javascript.
 
+For learning purpose:
+
+- Some codes are WET
+- Some codes have been made DRY
+- Arrow function is used
+- Destructuring assignment is used.
+
+
 ## Technology Used
 
 - HTML
@@ -30,7 +38,7 @@ It demonstrates the use of Object Oriented Programming in javascript.
 
 ## Live Demo
 
-[2du](https://adejam.github.io/2du/index.html)
+[2du](https://2du.netlify.app)
 
 ### Development (Running locally)
 
