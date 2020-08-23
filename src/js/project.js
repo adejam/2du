@@ -4,16 +4,17 @@ import dynamicId from './dynamicid';
 import addItem from './additems';
 import addItemToUi from './additemtoui';
 
-function create(e) {
+const create = e => {
   e.preventDefault();
-  const values = e.target.querySelectorAll('.values');
-  const databaseName = e.target.dataset.databasename;
-  const formType = e.target.dataset.formtype;
+  const { target } = e;
+  const values = target.querySelectorAll('.values');
+  const databaseName = target.dataset.databasename;
+  const formType = target.dataset.formtype;
   const item = dynamicValues(dynamicId(databaseName), values);
   addItem(item, databaseName);
   addItemToUi(item, databaseName, formType);
-  e.target.reset();
-  closeModal(e.target);
-}
+  target.reset();
+  closeModal(target);
+};
 
 export default create;

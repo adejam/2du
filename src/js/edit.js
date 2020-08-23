@@ -2,7 +2,7 @@ import getItems from './getitems';
 import closeModal from './closemodal';
 import addItemToUi from './additemtoui';
 
-function editTodo(e) {
+const editTodo = e => {
   e.preventDefault();
   const form = e.target.parentElement.parentElement;
   const databaseName = form.dataset.databasename;
@@ -22,6 +22,6 @@ function editTodo(e) {
   }
   closeModal(form);
   localStorage.setItem(databaseName, JSON.stringify(items));
-}
+};
 
 export default editTodo;

@@ -1,6 +1,6 @@
 import getItems from './getitems';
 
-function dynamicId(databaseName) {
+const dynamicId = databaseName => {
   let id;
   if (localStorage.getItem(databaseName) === null) {
     id = 0;
@@ -15,6 +15,6 @@ function dynamicId(databaseName) {
   }
 
   return id;
-}
+};
 
 export default dynamicId;

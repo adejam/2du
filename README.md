@@ -11,9 +11,7 @@ It demonstrates the use of Object Oriented Programming in javascript.
 For learning purpose:
 
 - Some codes are WET
-- Some codes have been made DRY
-- Arrow function is used
-- Destructuring assignment is used.
+- Some codes have been made DRY.
 
 ## Technology Used
 
@@ -28,6 +26,15 @@ For learning purpose:
 - [Bootstrap framework](https://getbootstrap.com/)
 
 - Javascript
+
+  - DOM manipulation APIs (i.e: `querySelector()`, `createElement()`, `setAttribute()` and more);
+  - Arrow function.
+  - Destructuring assignment.
+  - Spread Operator
+  - Object literal
+  - Template literal
+  - `.filter()` method
+  - Ternary Operators and more ES6 based syntax.
 
 - [Webpack](https://webpack.js.org/)
 

@@ -1,8 +1,10 @@
 import createNewElement from './newelement';
 import replaceElement from './replaceelement';
 
-function statusFunc(className, id) {
-  return `<button type="button" class="btn-sm btn ${className} changeStatus" data-databasename="todo" data-identity="${id}" id="statusButton${id}">
+const statusFunc = (
+  className,
+  id,
+) => `<button type="button" class="btn-sm btn ${className} changeStatus" data-databasename="todo" data-identity="${id}" id="statusButton${id}">
             <svg
               class="changeStatus" data-identity="${id}" id="statusSvg${id}" data-databasename="todo"
               xmlns="http://www.w3.org/2000/svg"
@@ -15,9 +17,8 @@ function statusFunc(className, id) {
             </svg>
           </button>
             `;
-}
 
-function addItemToUi(item, databaseName, formType) {
+const addItemToUi = (item, databaseName, formType) => {
   if (databaseName === 'todo') {
     let status = '';
     if (item.status === true) {
@@ -26,7 +27,7 @@ function addItemToUi(item, databaseName, formType) {
       status = statusFunc('btn-outline-success', item.id);
     }
     const todoRow = document.querySelector('#todoRow');
-    const dClasses = 'list_group_item list_group_item_action flex-column align-items-start';
+    const dClasses = 'list_group_item list_group_item_action todo flex-column align-items-start ';
     const tagId = `tod${item.id}`;
     const rowIner = `
               <div>
@@ -155,8 +156,8 @@ function addItemToUi(item, databaseName, formType) {
                            required
                            data-select="selectinput">
                             <option value="${item.selectProject}">${item.selectProject}</option>
-                            <option value="work">Work</option>
-                            <option value="personal">Personal</option>
+                            <option value="work">work</option>
+                            <option value="personal">personal</option>
                           </select>
                         </div>
                             </div>
@@ -184,7 +185,16 @@ function addItemToUi(item, databaseName, formType) {
               <div>
           `;
     if (formType === 'add') {
-      createNewElement(todoRow, 'article', dClasses, tagId, null, null, rowIner);
+      const addArray = [
+        todoRow,
+        'article',
+        dClasses,
+        tagId,
+        'data-filtered',
+        item.selectProject,
+        rowIner,
+      ];
+      createNewElement(...addArray);
     } else {
       replaceElement(tagId, rowIner);
     }
@@ -192,14 +202,32 @@ function addItemToUi(item, databaseName, formType) {
     const projectRow = document.querySelector('#projectRow');
     const selectInputs = document.querySelectorAll('[data-select="selectinput"]');
     const inputIner = `${item.projectTitle}`;
-    const inner = `<span>${item.projectTitle}</span>`;
+    const inner = `${item.projectTitle}`;
     const attr = `${item.projectTitle}`;
-    selectInputs.forEach(selectInput => {
-      createNewElement(selectInput, 'option', null, null, 'value', attr, inputIner);
-    });
 
-    createNewElement(projectRow, 'li', 'list_group_item', null, null, null, inner);
+    selectInputs.forEach(selectInput => {
+      const selectProjectArray = [
+        selectInput,
+        'option',
+        'myClass',
+        `mySelect${item.id}`,
+        'value',
+        attr,
+        inputIner,
+      ];
+      createNewElement(...selectProjectArray);
+    });
+    const projectRowArray = [
+      projectRow,
+      'li',
+      'list_group_item filter',
+      `myProject${item.id}`,
+      'data-tofilter',
+      item.projectTitle,
+      inner,
+    ];
+    createNewElement(...projectRowArray);
   }
-}
+};
 
 export default addItemToUi;

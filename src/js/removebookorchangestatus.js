@@ -3,13 +3,14 @@ import removeFromUi from './removefromui';
 import changeStatus from './changestatus';
 import editTodo from './edit';
 
-function removeBookOrChangeStatus(e) {
+const removeBookOrChangeStatus = e => {
   e.preventDefault();
-  if (e.target.classList.contains('removeBtn')) {
-    const databaseName = e.target.dataset.databasename;
+  const { target } = e;
+  if (target.classList.contains('removeBtn')) {
+    const databaseName = target.dataset.databasename;
     const items = getItems(databaseName);
     let index = -1;
-    const id = parseInt(e.target.id, 10);
+    const id = parseInt(target.id, 10);
     for (let i = 0; i < items.length; i += 1) {
       index += 1;
       if (items[i].id === id) {
@@ -19,10 +20,10 @@ function removeBookOrChangeStatus(e) {
     }
 
     localStorage.setItem(databaseName, JSON.stringify(items));
-    removeFromUi(e.target);
-  } else if (e.target.classList.contains('changeStatus')) {
-    const id = parseInt(e.target.dataset.identity, 10);
-    const databaseName = e.target.dataset.databasename;
+    removeFromUi(target);
+  } else if (target.classList.contains('changeStatus')) {
+    const id = parseInt(target.dataset.identity, 10);
+    const databaseName = target.dataset.databasename;
     const items = getItems(databaseName);
     for (let i = 0; i < items.length; i += 1) {
       if (items[i].id === id) {
@@ -37,7 +38,7 @@ function removeBookOrChangeStatus(e) {
       }
     }
     localStorage.setItem(databaseName, JSON.stringify(items));
-  } else if (e.target.classList.contains('edit')) {
+  } else if (target.classList.contains('edit')) {
     const editTodoForm = document.querySelectorAll('[data-formtype="edit"]');
     editTodoForm.forEach(fom => {
       const id = parseInt(fom.dataset.databaseid, 10);
@@ -45,6 +46,6 @@ function removeBookOrChangeStatus(e) {
       fomBtn.addEventListener('click', editTodo);
     });
   }
-}
+};
 
 export default removeBookOrChangeStatus;

@@ -151,9 +151,9 @@
                     </div>
                     <form id="projectForm" data-databasename="project">
                       <div class="modal-body">
-                        <input type="hidden" class="values" id="id" data-uid="uid" />
+                        <div class="alert d-none alert-danger" role="alert" id="alert"></div>
                         <div class="form-group">
-                          <label for="title">Project Title</label>
+                          <label for="projectTitle">Project Title</label>
                           <input
                             type="text"
                             class="form-control values"
@@ -183,8 +183,9 @@
               <h3 class="ta_center">Projects</h3>
               <div>
                 <ul class="list-group m_10" id="projectRow">
-                  <li class="list_group_item"><span>Work</span></li>
-                  <li class="list_group_item"><span>Personal</span></li>
+                  <li class="list_group_item filter" data-tofilter="all">All Projects</li>
+                  <li class="list_group_item filter" data-tofilter="work">work</li>
+                  <li class="list_group_item filter" data-tofilter="personal">personal</li>
                 </ul>
               </div>
             </div>

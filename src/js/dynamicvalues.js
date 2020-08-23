@@ -1,15 +1,15 @@
-function dynamicValues(id, values) {
+const dynamicValues = (dynamicId, values) => {
   const newItem = {};
-  values.forEach(result => {
-    if (result.dataset.uid === 'uid') {
-      newItem[result.id] = id;
-    } else if (result.dataset.checker === 'checker') {
-      newItem[result.id] = result.checked;
+  values.forEach(({ dataset: { uid, checker }, checked, value, id }) => {
+    if (uid === 'uid') {
+      newItem[id] = dynamicId;
+    } else if (checker === 'checker') {
+      newItem[id] = checked;
     } else {
-      newItem[result.id] = result.value;
+      newItem[id] = value;
     }
   });
   return newItem;
-}
+};
 
 export default dynamicValues;
