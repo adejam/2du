@@ -12,7 +12,9 @@
     "css-loader": "^3.6.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
@@ -20,6 +22,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "path": "^0.12.7",
     "prettier": "1.18.2",
+    "prettier-eslint": "^11.0.0",
     "style-loader": "^1.2.1",
     "stylelint": "^13.6.1",
     "stylelint-config-recommended": "^3.0.0",
@@ -39,8 +42,7 @@
     "stylelint:check": "npx stylelint **/*.css",
     "eslint": "npx eslint . --fix",
     "eslint:check": "npx eslint .",
-    "build": "npx webpack",
-    "build:watch": "npx webpack --watch",
-    "build": "npx webpack --mode production"
+    "build": "npx webpack --mode production",
+    "build:watch": "npx webpack --watch"
   }
 }
