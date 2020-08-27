@@ -1,6 +1,8 @@
 const dynamicValues = (dynamicId, values) => {
   const newItem = {};
-  values.forEach(({ dataset: { uid, checker }, checked, value, id }) => {
+  values.forEach(({
+    dataset: { uid, checker }, checked, value, id,
+  }) => {
     if (uid === 'uid') {
       newItem[id] = dynamicId;
     } else if (checker === 'checker') {
