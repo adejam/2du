@@ -8,11 +8,12 @@ const create = e => {
   e.preventDefault();
   const { target } = e;
   const values = target.querySelectorAll('.values');
-  const databaseName = target.dataset.databasename;
-  const formType = target.dataset.formtype;
+  const {
+    dataset: { formtype: formType, databasename: databaseName },
+  } = target;
   const item = dynamicValues(dynamicId(databaseName), values);
   addItem(item, databaseName);
-  addItemToUi(item, databaseName, formType);
+  addItemToUi(item)[databaseName][formType]();
   target.reset();
   closeModal(target);
 };

@@ -16,7 +16,7 @@ const editTodo = e => {
       values.forEach(({ dataset: { databasekey }, value }) => {
         items[i][databasekey] = value;
       });
-      addItemToUi(items[i], databaseName, formType);
+      addItemToUi(items[i])[databaseName][formType]();
       break;
     }
   }

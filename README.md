@@ -33,6 +33,7 @@ For learning purpose:
   - Spread Operator
   - Object literal
   - Template literal
+  - Factory functions
   - `.filter()` method
   - Ternary Operators and more ES6 based syntax.
 
