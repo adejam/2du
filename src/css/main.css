@@ -1,0 +1,34 @@
+.headerSection {
+  padding: 50px 0 20px;
+}
+
+.main {
+  min-height: 400px;
+}
+
+.smallText {
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.list_group_item {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list_group_item_action {
+  width: 100%;
+  color: #495057;
+  text-align: inherit;
+}
+
+.list_group_item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.list_group_item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}

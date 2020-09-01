@@ -8,6 +8,11 @@ The project follows the guideline of [the odin project](https://theodinproject.c
 
 It demonstrates the use of Object Oriented Programming in javascript.
 
+For learning purpose:
+
+- Some codes are WET
+- Some codes have been made DRY.
+
 ## Technology Used
 
 - HTML
@@ -22,6 +27,16 @@ It demonstrates the use of Object Oriented Programming in javascript.
 
 - Javascript
 
+  - DOM manipulation APIs (i.e: `querySelector()`, `createElement()`, `setAttribute()` and more);
+  - Arrow function.
+  - Destructuring assignment.
+  - Spread Operator
+  - Object literal
+  - Template literal
+  - Factory functions
+  - `.filter()` method
+  - Ternary Operators and more ES6 based syntax.
+
 - [Webpack](https://webpack.js.org/)
 
 - [stylint](https://stylelint.io/)
@@ -30,7 +45,7 @@ It demonstrates the use of Object Oriented Programming in javascript.
 
 ## Live Demo
 
-[2du](https://adejam.github.io/2du/index.html)
+[2du](https://2du.netlify.app)
 
 ### Development (Running locally)
 

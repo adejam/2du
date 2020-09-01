@@ -1,6 +1,21 @@
-const startApp = () => {
-  const body = document.querySelector('body');
-  body.innerHTML = '<h2>JAVASCRIPT ENABLED</h2>';
+import closeModal from './closemodal';
+import dynamicValues from './dynamicvalues';
+import dynamicId from './dynamicid';
+import addItem from './additems';
+import addItemToUi from './additemtoui';
+
+const create = e => {
+  e.preventDefault();
+  const { target } = e;
+  const values = target.querySelectorAll('.values');
+  const {
+    dataset: { formtype: formType, databasename: databaseName },
+  } = target;
+  const item = dynamicValues(dynamicId(databaseName), values);
+  addItem(item, databaseName);
+  addItemToUi(item)[databaseName][formType]();
+  target.reset();
+  closeModal(target);
 };
 
-export default startApp;
+export default create;
