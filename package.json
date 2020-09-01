@@ -34,8 +34,8 @@
     "webpack-fix-style-only-entries": "^0.5.1"
   },
   "scripts": {
-    "format": "npx prettier  --write **/*.{html,js,json,md,json,yaml,yml,jsx}",
-    "format:check": "npx prettier  --check **/*.{html,js,json,md,json,yaml,yml}",
+    "format": "npx prettier  --write **/*.{html,js,md,json,yaml,yml,jsx}",
+    "format:check": "npx prettier  --check **/*.{html,js,md,json,yaml,yml,jsx}",
     "lint": "npx stylelint **/*.css --fix && npx eslint . --fix",
     "lint:check": "npx stylelint **/*.css && npx eslint .",
     "stylelint": "npx stylelint **/*.css --fix",
