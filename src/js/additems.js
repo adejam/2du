@@ -1,9 +1,10 @@
 import getItems from './getitems';
+import setItemToDatabase from './setItem';
 
 const addItem = (item, databaseName) => {
   const items = getItems(databaseName);
   items.push(item);
-  localStorage.setItem(databaseName, JSON.stringify(items));
+  setItemToDatabase(databaseName, items);
 };
 
 export default addItem;
