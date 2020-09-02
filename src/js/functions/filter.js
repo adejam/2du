@@ -1,14 +1,6 @@
-import getItems from './getitems';
-import addItemToUi from './additemtoui';
+import getItems from '../storage/getitems';
+import listToShow from '../dom/listToShow';
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
-
-const listToShow = items => {
-  const todoRow = document.querySelector('#todoRow');
-  todoRow.querySelectorAll('*').forEach(row => row.remove());
-  items.forEach(item => {
-    addItemToUi(item).todo.add();
-  });
-};
 
 const filterTodo = ({
   target: {

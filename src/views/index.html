@@ -28,6 +28,15 @@
             </svg>
             <span>2du</span>
           </a>
+          <div class="d-none d-sm-block searchDiv">
+            <input
+              class="form-control"
+              type="search"
+              id="searchBig"
+              placeholder="Search Todo"
+              aria-label="Search"
+            />
+          </div>
           <ul class="navbar-nav d_r">
             <li class="nav-item mr_10">
               <button
@@ -176,30 +185,6 @@
             </li>
           </ul>
         </nav>
-      </header>
-      <main class="mt_10 mb_10 main">
-        <div class="row">
-          <section class="col-md-5 mb_10">
-            <div>
-              <h3 class="ta_center">Projects</h3>
-              <div>
-                <ul class="list-group m_10" id="projectRow">
-                  <li class="list_group_item filter" data-tofilter="all">All Projects</li>
-                  <li class="list_group_item filter" data-tofilter="work">work</li>
-                  <li class="list_group_item filter" data-tofilter="personal">personal</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <div class="col-md-7">
-            <h3 class="ta_center">Todo Lists</h3>
-            <section class="d-flex d_c" id="todoRow">
-              <h2 class="d-none">todo row</h2>
-            </section>
-          </div>
-        </div>
-      </main>
-      <footer>
         <section class="headerSection ta_center bg-warning">
           <h2>
             <svg
@@ -219,8 +204,80 @@
             <a href="http://github.com/adejam" class="text-info">Adeleye Jamiu</a>.
           </p>
           <p class="headerText text-secondary">Your Number One Todo List App.</p>
+          <div class="d_flex justify-content-center d-sm-none">
+            <div class="searchDiv">
+              <input
+                class="form-control"
+                type="search"
+                id="searchSmall"
+                placeholder="Search Book Name"
+                aria-label="Search"
+              />
+            </div>
+          </div>
         </section>
-      </footer>
+      </header>
+      <main class="mt_10 mb_10 main">
+        <div class="row">
+          <div class="col-12 d_flex justify-content-between justify-content-md-center">
+            <div class="d-md-none">
+              <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+              <button
+                class="btn btn-sm btn-outline-info dropdown-toggle"
+                type="button"
+                id="dropdownProjectButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Projects
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownProjectButton">
+                <a class="dropdown-item filter" data-tofilter="all" href="#">All Projects</a>
+                <a class="dropdown-item filter" data-tofilter="work" href="#">work</a>
+                <a class="dropdown-item filter" data-tofilter="personal" href="#">personal</a>
+              </div>
+              <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-sm btn-outline-info dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Sort Todo
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+          <section class="col-md-5 mb_10 ">
+            <div class="d-none d-md-block">
+              <h3 class="ta_center">Projects</h3>
+              <div>
+                <ul class="list-group m_10" id="projectRow">
+                  <li class="list_group_item filter" data-tofilter="all">All Projects</li>
+                  <li class="list_group_item filter" data-tofilter="work">work</li>
+                  <li class="list_group_item filter" data-tofilter="personal">personal</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <div class="col-md-7">
+            <h3 class="ta_center">Todo Lists</h3>
+            <section class="d-flex d_c" id="todoRow">
+              <h2 class="d-none">todo row</h2>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

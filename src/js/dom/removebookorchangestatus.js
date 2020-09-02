@@ -1,34 +1,20 @@
-import getItems from './getitems';
 import removeFromUi from './removefromui';
-// import changeStatus from './changestatus';
 import editTodo from './edit';
-import setItemToDatabase from './setItem';
-import changeStatusLogic from './changeStatusLogic';
+import changeStatusLogic from '../functions/changeStatusLogic';
+import removeBookLogic from '../functions/removeBookLogic';
 
 const removeBookOrChangeStatus = e => {
   e.preventDefault();
   const { target } = e;
   if (target.classList.contains('removeBtn')) {
     const databaseName = target.dataset.databasename;
-    const items = getItems(databaseName);
-    let index = -1;
     const id = parseInt(target.id, 10);
-    for (let i = 0; i < items.length; i += 1) {
-      index += 1;
-      if (items[i].id === id) {
-        items.splice(index, 1);
-        break;
-      }
-    }
-   setItemToDatabase(databaseName, items);
+    removeBookLogic(id, databaseName);
     removeFromUi(target);
   } else if (target.classList.contains('changeStatus')) {
     const id = parseInt(target.dataset.identity, 10);
     const databaseName = target.dataset.databasename;
-    const items = getItems(databaseName);
-    changeStatusLogic (items, id);
-    console.log(items);
-    setItemToDatabase(databaseName, items);
+    changeStatusLogic(databaseName, id);
   } else if (target.classList.contains('edit')) {
     const editTodoForm = document.querySelectorAll('[data-formtype="edit"]');
     editTodoForm.forEach(fom => {

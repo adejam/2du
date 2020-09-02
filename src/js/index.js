@@ -1,8 +1,8 @@
-import create from './project';
-import displayItems from './displayitems';
-import removeBookOrChangeStatus from './removebookorchangestatus';
-import filterTodo from './filter';
-import checker from './checker';
+import create from './functions/project';
+import displayItems from './functions/displayitems';
+import removeBookOrChangeStatus from './dom/removebookorchangestatus';
+import filterTodo from './functions/filter';
+import checker from './dom/checker';
 
 const projectForm = document.querySelector('#projectForm');
 const todoForm = document.querySelector('#todoForm');

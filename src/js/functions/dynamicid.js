@@ -1,4 +1,4 @@
-import getItems from './getitems';
+import getItems from '../storage/getitems';
 
 const dynamicId = databaseName => {
   let id;

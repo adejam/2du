@@ -6,7 +6,6 @@ on:
   pull_request:
 
 jobs:
-
   stylelint:
     name: StyleLint
     runs-on: ubuntu-latest

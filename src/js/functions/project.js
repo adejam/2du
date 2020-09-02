@@ -1,8 +1,8 @@
-import closeModal from './closemodal';
+import closeModal from '../dom/closemodal';
 import dynamicValues from './dynamicvalues';
 import dynamicId from './dynamicid';
 import addItem from './additems';
-import addItemToUi from './additemtoui';
+import addItemToUi from '../dom/additemtoui';
 
 const create = e => {
   e.preventDefault();

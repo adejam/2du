@@ -1,5 +1,5 @@
-import getItems from './getitems';
-import addItemToUi from './additemtoui';
+import getItems from '../storage/getitems';
+import addItemToUi from '../dom/additemtoui';
 
 const displayItems = databaseName => {
   const items = getItems(databaseName);
