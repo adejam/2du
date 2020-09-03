@@ -31,6 +31,7 @@ const addItemToUi = item => ({
   project: {
     add() {
       const projectRow = document.querySelector('#projectRow');
+      const dropdownProject = document.querySelector('#dropdownProject');
       const selectInputs = document.querySelectorAll('[data-select="selectinput"]');
       const inputIner = `${item.projectTitle}`;
       const inner = `${item.projectTitle}`;
@@ -57,7 +58,19 @@ const addItemToUi = item => ({
         item.projectTitle,
         inner,
       ];
+
+      const dropdownProjectArray = [
+        dropdownProject,
+        'a',
+        'dropdown-item filter',
+        `myProjectDropdown${item.id}`,
+        'data-tofilter',
+        item.projectTitle,
+        inner,
+      ];
+
       createNewElement(...projectRowArray);
+      createNewElement(...dropdownProjectArray);
     },
   },
 });
