@@ -1,8 +1,8 @@
-import getItems from '../storage/getitems';
 import addItemToUi from '../dom/additemtoui';
+import database from '../storage/database';
 
 const displayItems = databaseName => {
-  const items = getItems(databaseName);
+  const items = database.getItems(databaseName);
   items.forEach(item => addItemToUi(item)[databaseName].add());
 };
 

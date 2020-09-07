@@ -1,4 +1,4 @@
-import getItems from '../storage/getitems';
+import database from '../storage/database';
 
 const dynamicId = databaseName => {
   let id;
@@ -9,7 +9,7 @@ const dynamicId = databaseName => {
     if (theLength < 3) {
       id = 0;
     } else {
-      const items = getItems(databaseName);
+      const items = database.getItems(databaseName);
       id = items[items.length - 1].id + 1;
     }
   }

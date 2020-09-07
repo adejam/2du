@@ -1,10 +1,9 @@
-import getItems from '../storage/getitems';
-import setItemToDatabase from '../storage/setItem';
+import database from '../storage/database';
 
 const addItem = (item, databaseName) => {
-  const items = getItems(databaseName);
+  const items = database.getItems(databaseName);
   items.push(item);
-  setItemToDatabase(databaseName, items);
+  database.setItemToDatabase(databaseName, items);
 };
 
 export default addItem;

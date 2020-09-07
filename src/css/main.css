@@ -24,7 +24,8 @@
   text-align: inherit;
 }
 
-.list_group_item:hover {
+.list_group_item:hover,
+.filterDiv {
   background-color: rgba(0, 0, 0, 0.03);
 }
 

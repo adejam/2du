@@ -2,7 +2,11 @@ import create from './functions/project';
 import displayItems from './functions/displayitems';
 import removeBookOrChangeStatus from './dom/removebookorchangestatus';
 import checker from './dom/checker';
-import filterValues from './functions/filterValues';
+import currentStates from './functions/currentStates';
+import search from './functions/search/search';
+import projectTodos from './functions/project/projectTodos';
+import sortTodos from './functions/sort/sortTodos';
+import switchTab from './functions/switchTab';
 
 const projectForm = document.querySelector('#projectForm');
 const todoForm = document.querySelector('#todoForm');
@@ -11,18 +15,26 @@ const projectRow = document.querySelectorAll('.projectRow');
 todoRow.addEventListener('click', removeBookOrChangeStatus);
 projectForm.addEventListener('submit', checker);
 todoForm.addEventListener('submit', create);
+const filterSelect = document.querySelector('#filterSelect');
+const sortSelect = document.querySelector('#sortSelect');
+const checkForFilterClass = ({
+  target: {
+    classList,
+    dataset: { tofilter },
+  },
+}) => {
+  if (classList.contains('filter')) {
+    projectTodos[currentStates.filterSelect][currentStates.sortSelect](tofilter);
+  }
+};
 projectRow.forEach(row => {
-  const filter = row.dataset.filtertype;
-  row.addEventListener('click', filterValues[filter]);
+  row.addEventListener('click', checkForFilterClass);
 });
 
-const searchBig = document.querySelector('#searchBig');
-const searchSmall = document.querySelector('#searchSmall');
-const searchBigType = searchBig.dataset.filtertype;
-const searchSmallType = searchSmall.dataset.filtertype;
-
-searchBig.addEventListener('keyup', filterValues[searchBigType]);
-searchSmall.addEventListener('keyup', filterValues[searchSmallType]);
+filterSelect.addEventListener('click', switchTab);
+sortSelect.addEventListener('change', sortTodos);
+const searchbox = document.querySelector('#search');
+searchbox.addEventListener('keyup', search);
 
 document.addEventListener('DOMContentLoaded', displayItems('todo'));
 document.addEventListener('DOMContentLoaded', displayItems('project'));

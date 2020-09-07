@@ -7,7 +7,7 @@ const addItemToUi = item => ({
     add() {
       const todoRow = document.querySelector('#todoRow');
       const theClasses =
-        'list_group_item list_group_item_action todo flex-column align-items-start ';
+        'list_group_item list_group_item_action todo flex-column align-items-start mb_10';
       const tagId = `tod${item.id}`;
       const rowInnerHtml = todoRowInnerHtml(item);
       const addArray = [

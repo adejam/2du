@@ -1,5 +1,7 @@
 import closeModal from './closemodal';
 import editLogic from '../functions/editLogic';
+import database from '../storage/database';
+import addItemToUi from './additemtoui';
 
 const editTodo = e => {
   e.preventDefault();
@@ -8,7 +10,10 @@ const editTodo = e => {
   const formType = form.dataset.formtype;
   const id = parseInt(form.dataset.databaseid, 10);
   const values = form.querySelectorAll('.values');
-  editLogic(values, id, databaseName, formType);
+  const todos = database.getItems(databaseName);
+  const newTodos = editLogic(values, id, todos);
+  addItemToUi(newTodos.todo)[databaseName][formType]();
+  database.setItemToDatabase(databaseName, newTodos.todos);
   closeModal(form);
 };
 

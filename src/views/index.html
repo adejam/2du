@@ -12,9 +12,9 @@
     />
   </head>
   <body>
-    <div class="">
+    <div>
       <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+        <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-between">
           <a class="navbar-brand text-info" href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -28,163 +28,34 @@
             </svg>
             <span>2du</span>
           </a>
-          <div class="d-none d-sm-block searchDiv">
-            <input
-              class="form-control"
-              type="search"
-              id="searchBig"
-              placeholder="Search Todo"
-              aria-label="Search"
-              data-filtertype="search"
-            />
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-tabs ml-auto ta_center" id="filterSelect">
+              <li class="nav-item">
+                <a class="nav-link filterLink" href="#" id="activeTask">Active Task</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link filterLink" href="#" id="dueTask">Due Task</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link filterLink" href="#" id="completedTask">Completed Task</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link filterLink" href="#" id="incompleteTask">Incomplete Task</a>
+              </li>
+            </ul>
           </div>
-          <ul class="navbar-nav d_r">
-            <li class="nav-item mr_10">
-              <button
-                class="btn btn-outline-secondary ta_center btn-sm"
-                type="button"
-                data-toggle="modal"
-                data-target="#addBookModal"
-              >
-                Add Todo
-              </button>
-              <div
-                class="modal fade"
-                id="addBookModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Add Todo</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <form id="todoForm" data-databasename="todo" data-formtype="add">
-                      <div class="modal-body">
-                        <input type="hidden" class="values" id="id" data-uid="uid" />
-                        <div class="form-group">
-                          <label for="title">Title</label>
-                          <input
-                            type="text"
-                            class="form-control values"
-                            id="title"
-                            placeholder="Title"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="description">Description</label>
-                          <input
-                            type="text"
-                            class="form-control values"
-                            id="description"
-                            placeholder="Description"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="priority">Priority</label>
-                          <select class="form-control values" id="priority" required>
-                            <option value="">Choose Priority...</option>
-                            <option value="very low">Very Low</option>
-                            <option value="low">Low</option>
-                            <option value="average">Average</option>
-                            <option value="high">High</option>
-                            <option value="very high">Very High</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="dueDate">Due Date</label>
-                          <input
-                            type="datetime-local"
-                            class="form-control values"
-                            id="dueDate"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="selectProject">Project</label>
-                          <select
-                            class="form-control values"
-                            id="selectProject"
-                            data-select="selectinput"
-                            required
-                          >
-                            <option value="">Choose Project...</option>
-                            <option value="work">Work</option>
-                            <option value="personal">Personal</option>
-                          </select>
-                        </div>
-                        <input
-                          type="hidden"
-                          class="form-check-input values"
-                          id="status"
-                          data-checker="checker"
-                        />
-                      </div>
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="addTodo">Add Todo</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item">
-              <button
-                class="btn btn-outline-secondary ta_center btn-sm"
-                type="button"
-                data-toggle="modal"
-                data-target="#addProjectModal"
-              >
-                Add Project
-              </button>
-              <div
-                class="modal fade"
-                id="addProjectModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel2"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel2">Add Project</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <form id="projectForm" data-databasename="project" data-formtype="add">
-                      <div class="modal-body">
-                        <div class="alert d-none alert-danger" role="alert" id="alert"></div>
-                        <div class="form-group">
-                          <label for="projectTitle">Project Title</label>
-                          <input
-                            type="text"
-                            class="form-control values"
-                            id="projectTitle"
-                            placeholder="Project Title"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="addProject">
-                          Add Project
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
         </nav>
         <section class="headerSection ta_center bg-warning">
           <h2>
@@ -205,26 +76,159 @@
             <a href="http://github.com/adejam" class="text-info">Adeleye Jamiu</a>.
           </p>
           <p class="headerText text-secondary">Your Number One Todo List App.</p>
-          <div class="d_flex justify-content-center d-sm-none">
-            <div class="searchDiv">
-              <input
-                class="form-control"
-                type="search"
-                id="searchSmall"
-                placeholder="Search Book Name"
-                aria-label="Search"
-                data-filtertype="search"
-              />
-            </div>
-          </div>
-        </section>
-      </header>
-      <main class="mt_10 mb_10 main">
-        <div class="row">
-          <div class="col-12 d_flex justify-content-between justify-content-md-center">
-            <div class="d-md-none">
+          <div class="d_flex justify-content-center m_10 ta_left">
+            <ul class="navbar-nav d_r">
+              <li class="nav-item mr_10">
+                <button
+                  class="btn btn-outline-secondary ta_center btn-sm"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#addBookModal"
+                >
+                  Add Todo
+                </button>
+                <div
+                  class="modal fade"
+                  id="addBookModal"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Todo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form id="todoForm" data-databasename="todo" data-formtype="add">
+                        <div class="modal-body">
+                          <input type="hidden" class="values" id="id" data-uid="uid" />
+                          <div class="form-group">
+                            <label for="title">Title</label>
+                            <input
+                              type="text"
+                              class="form-control values"
+                              id="title"
+                              placeholder="Title"
+                              required
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="description">Description</label>
+                            <input
+                              type="text"
+                              class="form-control values"
+                              id="description"
+                              placeholder="Description"
+                              required
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select class="form-control values" id="priority" required>
+                              <option value="">Choose Priority...</option>
+                              <option value="1">Very Low</option>
+                              <option value="2">Low</option>
+                              <option value="3">Average</option>
+                              <option value="4">High</option>
+                              <option value="5">Very High</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="dueDate">Due Date</label>
+                            <input
+                              type="datetime-local"
+                              class="form-control values"
+                              id="dueDate"
+                              required
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="selectProject">Project</label>
+                            <select
+                              class="form-control values"
+                              id="selectProject"
+                              data-select="selectinput"
+                              required
+                            >
+                              <option value="">Choose Project...</option>
+                              <option value="work">Work</option>
+                              <option value="personal">Personal</option>
+                            </select>
+                          </div>
+                          <input
+                            type="hidden"
+                            class="form-check-input values"
+                            id="status"
+                            data-checker="checker"
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary" id="addTodo">
+                            Add Todo
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="btn btn-outline-secondary ta_center btn-sm"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#addProjectModal"
+                >
+                  Add Project
+                </button>
+                <div
+                  class="modal fade"
+                  id="addProjectModal"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalLabel2"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Add Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form id="projectForm" data-databasename="project" data-formtype="add">
+                        <div class="modal-body">
+                          <div class="alert d-none alert-danger" role="alert" id="alert"></div>
+                          <div class="form-group">
+                            <label for="projectTitle">Project Title</label>
+                            <input
+                              type="text"
+                              class="form-control values"
+                              id="projectTitle"
+                              placeholder="Project Title"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary" id="addProject">
+                            Add Project
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="d-md-none ml_10 ">
               <button
-                class="btn btn-sm btn-outline-info dropdown-toggle"
+                class="btn btn-sm btn-outline-secondary dropdown-toggle"
                 type="button"
                 id="dropdownProjectButton"
                 data-toggle="dropdown"
@@ -244,15 +248,49 @@
                 <a class="dropdown-item filter" data-tofilter="personal" href="#">personal</a>
               </div>
             </div>
-            <div class="dropdown">
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option value="">Sort By...</option>
-                <option value="priority">Prioity</option>
-                <option value="dueDate"></option>
+          </div>
+          <div class="d_flex justify-content-center d-s-none">
+            <div class="searchDiv">
+              <input
+                class="form-control"
+                type="search"
+                id="search"
+                placeholder="Search Todo Title"
+                aria-label="Search"
+                data-filtertype="search"
+              />
+            </div>
+          </div>
+        </section>
+      </header>
+      <main class=" mb_10 main bg-light">
+        <div class="row">
+          <div class="p_10 col-12 d_flex justify-content-end mb_10 filterDiv">
+            <!-- <div>
+              <label for="filterSelect">Filter By</label>
+              <select class="form-control" id="filterSelect">
+                <option value="all">All</option>
+                <option value="">Active Task</option>
+                <option value="">Completed Task</option>
+                <option value="">Incomplete Task</option>
+                
+                <option value="dueDate">Due Task</option>
+              </select>
+            </div> -->
+            <div>
+              <select class="form-control" id="sortSelect">
+                <option value="oldToNew" data-oldToNew="oldToNew">Oldest to Newest</option>
+                <option value="newToOld" data-newToOld="newToOld">Newest to Oldest</option>
+                <option value="lowestPriority" data-lowestPriority="lowestPriority"
+                  >Priority (Lowest to Highest Priority)</option
+                >
+                <option value="highestPriority" data-highestPriority="lowToHigh"
+                  >Priority (Highest to Lowest Priority)</option
+                >
               </select>
             </div>
           </div>
-          <section class="col-md-5 mb_10 ">
+          <section class="col-md-3 mb_10 ">
             <div class="d-none d-md-block">
               <h3 class="ta_center">Projects</h3>
               <div>
