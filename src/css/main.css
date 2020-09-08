@@ -12,7 +12,6 @@
 }
 
 .list_group_item {
-  display: block;
   padding: 0.75rem 1.25rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -32,4 +31,16 @@
 .list_group_item:first-child {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+}
+
+.undo {
+  bottom: 20px;
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  background: #6abfc3;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  cursor: pointer;
 }

@@ -7,6 +7,7 @@ const currentStates = {
   projectState: 'all',
   filterSelect: 'all',
   sortSelect: 'oldToNew',
+  todelete: 'no',
 };
 
 export default currentStates;
