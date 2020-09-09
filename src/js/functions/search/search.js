@@ -1,8 +1,10 @@
 import getItemToSearch from './getItemToSearch';
 import listToShow from '../../dom/listToShow';
+import database from '../../storage/database';
 
 const search = ({ target: { value } }) => {
-  const filteredArrays = getItemToSearch(value);
+  const todos = database.getItems('todo');
+  const filteredArrays = getItemToSearch(value, todos);
   listToShow(filteredArrays);
 };
 

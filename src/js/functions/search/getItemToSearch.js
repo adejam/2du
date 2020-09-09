@@ -1,8 +1,6 @@
-import database from '../../storage/database';
-
-const getItemToSearch = value => {
+const getItemToSearch = (value, todos) => {
   const searchKey = value.toLowerCase();
-  const todos = database.getItems('todo');
+
   return todos.filter(({ title }) => title.toLowerCase().indexOf(searchKey) !== -1);
 };
 

@@ -13,7 +13,7 @@ const editTodo = e => {
   const todos = database.getItems(databaseName);
   const newTodos = editLogic(values, id, todos);
   addItemToUi(newTodos.todo)[databaseName][formType]();
-  database.setItemToDatabase(databaseName, newTodos.todos);
+  database.setItemToDatabase(databaseName, newTodos.todosList);
   closeModal(form);
 };
 

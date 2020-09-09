@@ -6,9 +6,11 @@ import incompletedTodos from '../filter/incompletedTodos';
 import completedTodos from '../filter/completedTodos';
 import activeTodos from '../filter/activeTodos';
 import inactiveTodos from '../filter/inactiveTodos';
+import database from '../../storage/database';
 
 const getTodoAndUpdateState = tofilter => {
-  const arrays = getTodosByProject(tofilter);
+  const todos = database.getItems('todo');
+  const arrays = getTodosByProject(tofilter, todos);
   currentStates.currentTodos = arrays;
   currentStates.projectState = tofilter;
   return arrays;

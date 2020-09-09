@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
@@ -18,6 +19,7 @@
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.4.2",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "path": "^0.12.7",
@@ -43,6 +45,7 @@
     "eslint": "npx eslint . --fix",
     "eslint:check": "npx eslint .",
     "build": "npx webpack --mode production",
-    "build:watch": "npx webpack --watch"
+    "build:watch": "npx webpack --watch",
+    "test": "jest"
   }
 }
