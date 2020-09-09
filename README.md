@@ -6,12 +6,28 @@
 
 The project follows the guideline of [the odin project](https://theodinproject.com/courses/javascript/lessons/todo-list?ref=lnav) to build a todo app using javascript for DOM manipulation and interaction. It uses javascript objects and functions. It uses webpack. It also uses Bootstrap for user interface design.
 
-It demonstrates the use of Object Oriented Programming in javascript.
+It demonstrates the use of Object Oriented Programming principle in javascript.
 
-For learning purpose:
+Special Features:
 
-- Some codes are WET
-- Some codes have been made DRY.
+- Selecting `Todos` by `Projects`
+
+- Filtering `Todos` by:
+
+  - `Active Task`,
+  - `Due Task`,
+  - `Completed Task`, and
+  - `Incomplete Task`
+
+- Sorting `Todos` by:
+
+  - Oldest Todos to newest Todos,
+  - Newest Todos to Oldest Todos and
+  - `Priority`
+
+- Search feature
+
+- Undo delete feature
 
 ## Technology Used
 
@@ -35,6 +51,7 @@ For learning purpose:
   - Template literal
   - Factory functions
   - `.filter()` method
+  - `sort()` method
   - Ternary Operators and more ES6 based syntax.
 
 - [Webpack](https://webpack.js.org/)
