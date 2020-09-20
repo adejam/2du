@@ -8,7 +8,7 @@ const editTodo = e => {
   const form = e.target.parentElement.parentElement;
   const databaseName = form.dataset.databasename;
   const formType = form.dataset.formtype;
-  const id = parseInt(form.dataset.databaseid, 10);
+  const id = form.dataset.databaseid;
   const values = form.querySelectorAll('.values');
   const todos = database.getItems(databaseName);
   const newTodos = editLogic(values, id, todos);

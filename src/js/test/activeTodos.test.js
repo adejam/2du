@@ -87,5 +87,6 @@ test('return type of activeTodos is a function', () => {
 });
 
 test('activeTodos filters todos by todos whose time greater than current date', () => {
+  Date.now = jest.fn(() => new Date('2020-09-10T14:58'));
   expect(activeTodos(todos)).toEqual(newTodos);
 });

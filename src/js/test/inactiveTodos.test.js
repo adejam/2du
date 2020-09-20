@@ -78,5 +78,6 @@ test('return type of inactiveTodos is a function', () => {
 });
 
 test('inactiveTodos filters todos by todos whose time less than current date-time', () => {
+  Date.now = jest.fn(() => new Date('2020-09-10T14:58'));
   expect(inactiveTodos(todos)).toEqual(newTodos);
 });

@@ -42,14 +42,20 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-tabs ml-auto ta_center" id="filterSelect">
               <li class="nav-item">
-                <a class="nav-link filterLink" href="#" id="activeTask">Active Task</a>
+                <button type="button" class="nav-link filterLink" href="#" id="activeTask">
+                  Active Task
+                </button>
               </li>
               <li class="nav-item">
-                <a class="nav-link filterLink" href="#" id="dueTask">Due Task</a>
+                <button type="button" class="nav-link filterLink" href="#" id="dueTask">
+                  Due Task
+                </button>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link filterLink" href="#" id="completedTask">Completed Task</a>
+                <button type="button" class="nav-link filterLink" href="#" id="completedTask">
+                  Completed Task
+                </button>
               </li>
               <li class="nav-item">
                 <a class="nav-link filterLink" href="#" id="incompleteTask">Incomplete Task</a>
@@ -87,7 +93,7 @@
                 >
                   Add Todo
                 </button>
-                <div
+                <section
                   class="modal fade"
                   id="addBookModal"
                   tabindex="-1"
@@ -174,7 +180,7 @@
                       </form>
                     </div>
                   </div>
-                </div>
+                </section>
               </li>
               <li class="nav-item">
                 <button
@@ -185,7 +191,7 @@
                 >
                   Add Project
                 </button>
-                <div
+                <section
                   class="modal fade"
                   id="addProjectModal"
                   tabindex="-1"
@@ -223,7 +229,7 @@
                       </form>
                     </div>
                   </div>
-                </div>
+                </section>
               </li>
             </ul>
             <div class="d-md-none ml_10 ">
@@ -300,9 +306,9 @@
         </div>
       </main>
       <footer></footer>
-      <div class="undo d_none">
+      <button type="button" class="undo d_none">
         Undo
-      </div>
+      </button>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

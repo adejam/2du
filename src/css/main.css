@@ -44,3 +44,8 @@
   padding: 1em;
   cursor: pointer;
 }
+
+.filterLink {
+  background-color: transparent;
+  width: 100%;
+}

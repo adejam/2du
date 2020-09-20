@@ -5,7 +5,7 @@ import checker from './dom/checker';
 import currentStates from './functions/currentStates';
 import search from './functions/search/search';
 import projectTodos from './functions/project/projectTodos';
-import sortTodos from './functions/sort/sortTodos';
+import sortTodos from './dom/sortTodos';
 import switchTab from './functions/switchTab';
 
 const projectForm = document.querySelector('#projectForm');

@@ -1,5 +1,5 @@
-import currentStates from '../currentStates';
-import projectTodos from '../project/projectTodos';
+import currentStates from '../functions/currentStates';
+import projectTodos from '../functions/project/projectTodos';
 
 const sortTodos = () => {
   const sortSelectValue = document.querySelector('#sortSelect').value;
