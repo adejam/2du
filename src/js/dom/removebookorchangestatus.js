@@ -1,6 +1,5 @@
 import removeFromUi from './removefromui';
 import editTodo from './edit';
-import undoDelete from './undoDelete';
 import changeStatusLogic from '../functions/changeStatusLogic';
 import removeBookLogic from '../functions/removeBookLogic';
 import currentStates from '../functions/currentStates';
@@ -15,13 +14,16 @@ const removeBookOrChangeStatus = e => {
     const databaseName = target.dataset.databasename;
     const todos = database.getItems(databaseName);
     currentStates.todelete = 'yes';
+    currentStates.deleteState = todos;
     const newTodos = removeBookLogic(target.id, todos);
     removeFromUi(target);
+    database.setItemToDatabase(databaseName, newTodos);
     const undo = document.querySelector('.undo');
     undo.classList.remove('d_none');
     undo.addEventListener('click', restore);
-    const undoParams = [target, databaseName, newTodos, undo];
-    undoDelete(...undoParams);
+    setTimeout(() => {
+      undo.classList.add('d_none');
+    }, 5000);
   } else if (target.classList.contains('changeStatus')) {
     const databaseName = target.dataset.databasename;
     const todos = database.getItems(databaseName);
