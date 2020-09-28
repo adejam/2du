@@ -64,6 +64,8 @@ Features:
 
 - [NPM](https://www.npmjs.com/)
 
+- [Jest](https://jestjs.io/)
+
 ## Live Demo
 
 [2du](https://2du.netlify.app)
