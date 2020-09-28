@@ -8,10 +8,15 @@ The project follows the guideline of [the odin project](https://theodinproject.c
 
 It demonstrates the use of Object Oriented Programming principle in javascript.
 
-Special Features:
+Features:
 
+- Add project
+- Add todo
+- Edit todo
+- Update todo status as completed or incomplete todo
+- Delete todo
+- Undo delete todo feature
 - Selecting `Todos` by `Projects`
-
 - Filtering `Todos` by:
 
   - `Active Task`,
@@ -23,11 +28,10 @@ Special Features:
 
   - Oldest Todos to newest Todos,
   - Newest Todos to Oldest Todos and
-  - `Priority`
+  - `Priority` (Lowest to Highest priority)
+  - `Priority` (Highest to Lowest priority)
 
-- Search feature
-
-- Undo delete feature
+- Search todo feature
 
 ## Technology Used
 
