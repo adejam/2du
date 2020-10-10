@@ -6,7 +6,32 @@
 
 The project follows the guideline of [the odin project](https://theodinproject.com/courses/javascript/lessons/todo-list?ref=lnav) to build a todo app using javascript for DOM manipulation and interaction. It uses javascript objects and functions. It uses webpack. It also uses Bootstrap for user interface design.
 
-It demonstrates the use of Object Oriented Programming in javascript.
+It demonstrates the use of Object Oriented Programming principle in javascript.
+
+Features:
+
+- Add project
+- Add todo
+- Edit todo
+- Update todo status as completed or incomplete todo
+- Delete todo
+- Undo delete todo feature which restores last deleted todo
+- Selecting `Todos` by `Projects`
+- Filtering `Todos` by:
+
+  - `Active Task`,
+  - `Due Task`,
+  - `Completed Task`, and
+  - `Incomplete Task`
+
+- Sorting `Todos` by:
+
+  - Oldest Todos to newest Todos,
+  - Newest Todos to Oldest Todos and
+  - `Priority` (Lowest to Highest priority)
+  - `Priority` (Highest to Lowest priority)
+
+- Search todo feature
 
 ## Technology Used
 
@@ -22,15 +47,28 @@ It demonstrates the use of Object Oriented Programming in javascript.
 
 - Javascript
 
+  - DOM manipulation APIs (i.e: `querySelector()`, `createElement()`, `setAttribute()` and more);
+  - Arrow function.
+  - Destructuring assignment.
+  - Spread Operator
+  - Object literal
+  - Template literal
+  - Factory functions
+  - `.filter()` method
+  - `sort()` method
+  - Ternary Operators and more ES6 based syntax.
+
 - [Webpack](https://webpack.js.org/)
 
 - [stylint](https://stylelint.io/)
 
 - [NPM](https://www.npmjs.com/)
 
+- [Jest](https://jestjs.io/)
+
 ## Live Demo
 
-[2du](https://adejam.github.io/2du/index.html)
+[2du](https://2du.netlify.app)
 
 ### Development (Running locally)
 
