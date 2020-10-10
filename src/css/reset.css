@@ -45,6 +45,7 @@ legend,
 li,
 mark,
 menu,
+meter,
 nav,
 ol,
 p,
@@ -91,6 +92,10 @@ a:hover {
 
 .ta_center {
   text-align: center;
+}
+
+.ta_left {
+  text-align: left;
 }
 
 .c_p {

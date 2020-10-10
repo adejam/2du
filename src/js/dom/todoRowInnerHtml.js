@@ -15,6 +15,14 @@ const statusFunc = (
           </button>
             `;
 
+const priorityToText = {
+  '1': 'Very Low',
+  '2': 'Low',
+  '3': 'Average',
+  '4': 'High',
+  '5': 'Very High',
+};
+
 const todoRowInnerHtml = item => {
   let status = '';
   if (item.status === true) {
@@ -23,11 +31,13 @@ const todoRowInnerHtml = item => {
     status = statusFunc('btn-outline-success', item.id);
   }
 
+  const priorityText = priorityToText[item.priority];
+
   return `
               <div>
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">${item.title}</h5>
-                  <small>${item.priority}</small>
+                  <small>${priorityText}</small>
                 </div>
                 <p class="mb-1">${item.dueDate}</p>
                 <div class="buttonsDiv d-flex">
@@ -121,12 +131,12 @@ const todoRowInnerHtml = item => {
                            id="editPriority${item.id}"
                            data-databasekey="priority"
                            required>
-                           <option value="${item.priority}">${item.priority}</option>
-                            <option value="very low">Very Low</option>
-                            <option value="low">Low</option>
-                            <option value="average">Average</option>
-                            <option value="high">High</option>
-                            <option value="very high">Very High</option>
+                           <option value="${item.priority}">${priorityText}</option>
+                            <option value="1">Very Low</option>
+                            <option value="2">Low</option>
+                            <option value="3">Average</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
                           </select>
                         </div>
                               <div class="form-group">

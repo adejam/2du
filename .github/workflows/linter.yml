@@ -6,7 +6,6 @@ on:
   pull_request:
 
 jobs:
-
   stylelint:
     name: StyleLint
     runs-on: ubuntu-latest
@@ -43,3 +42,21 @@ jobs:
           npm install
       - name: ESLint Report
         run: npm run eslint:check
+
+  jest:
+    name: Jest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+      - name: Set up Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install required dependency for node
+        run: |
+          npm install
+      - name: Run Test
+        run: |
+          npm run test

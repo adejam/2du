@@ -1,4 +1,4 @@
-import create from './project';
+import create from '../functions/project';
 
 const checker = e => {
   e.preventDefault();

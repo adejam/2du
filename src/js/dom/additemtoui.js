@@ -7,7 +7,7 @@ const addItemToUi = item => ({
     add() {
       const todoRow = document.querySelector('#todoRow');
       const theClasses =
-        'list_group_item list_group_item_action todo flex-column align-items-start ';
+        'list_group_item list_group_item_action todo flex-column align-items-start mb_10';
       const tagId = `tod${item.id}`;
       const rowInnerHtml = todoRowInnerHtml(item);
       const addArray = [
@@ -31,6 +31,7 @@ const addItemToUi = item => ({
   project: {
     add() {
       const projectRow = document.querySelector('#projectRow');
+      const dropdownProject = document.querySelector('#dropdownProject');
       const selectInputs = document.querySelectorAll('[data-select="selectinput"]');
       const inputIner = `${item.projectTitle}`;
       const inner = `${item.projectTitle}`;
@@ -57,7 +58,19 @@ const addItemToUi = item => ({
         item.projectTitle,
         inner,
       ];
+
+      const dropdownProjectArray = [
+        dropdownProject,
+        'a',
+        'dropdown-item filter',
+        `myProjectDropdown${item.id}`,
+        'data-tofilter',
+        item.projectTitle,
+        inner,
+      ];
+
       createNewElement(...projectRowArray);
+      createNewElement(...dropdownProjectArray);
     },
   },
 });
