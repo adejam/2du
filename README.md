@@ -15,7 +15,7 @@ Features:
 - Edit todo
 - Update todo status as completed or incomplete todo
 - Delete todo
-- Undo delete todo feature
+- Undo delete todo feature which restores last deleted todo
 - Selecting `Todos` by `Projects`
 - Filtering `Todos` by:
 
